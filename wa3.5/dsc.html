@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        html {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+        
+        .flex {
+            display: flex;
+            flex-direction: row;
+        }
+        .color-box {
+            height: 100px;
+            width: 100px;
+        }
+
+        #box1 {background-color: #2D6A4F; color: #FFFFFF; }
+        #box2 {background-color: #4DA6FF; color: #000000; } 
+        #box3 {background-color: #8B5E3C; color: #FFFFFF; }
+        #box4 {background-color: #F8F9FA; color: #000000; border: 1px solid #ccc; }
+        #box5 {background-color: #F77F00; color: #FFFFFF; }
+
+        p{font-size: 16px}
+
+        .small-text {font-size: 12pt;}
+
+        h3 {font-size: 20px;}
+        h2 {font-size:24px;}
+        h3 {font-size: 28px;}
+
+        a {
+            text-decoration: none;
+            color:#8B5E3C;;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #F77F00
+        }
+
+        .btn {
+        font-family: "Bebas Neue", sans-serif;
+        }
+
+        .btn {
+        background-color: #2D6A4F;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        }
+        
+        .btn:hover {
+        background-color: #40916C;
+        }
+
+        .btn:focus {
+        outline: 3px solid #F77F00;
+        outline-offset: 2px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="flex">
+    <div class="color-box" id="box1">#2D6A4F</div>
+    <div class="color-box" id="box2">#4DA6FF</div>
+    <div class="color-box" id="box3">#8B5E3C</div>
+    <div class="color-box" id="box4">#F8F9FA</div>
+    <div class="color-box" id="box5">#F77F00</div>
+</div>
+    <h1>This is a heading 1</h1>
+    <h2>This is a heading 2</h2>
+    <h3>This is a heading 3</h3>
+
+    <p>This is a paragraph text</p>
+    <p class="small-text">This is small text</p>
+
+    <p><a href="#">This is a link</a></p>
+    <button class="btn">Click Me</button>
+</body>
+</html>
