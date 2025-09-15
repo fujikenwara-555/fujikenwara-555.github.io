@@ -4,6 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ken Fujiwara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2D6A4F;
+      --secondary: #4DA6FF;
+      --accent: #F77F00;
+      --neutral-dark: #8B5E3C;
+      --neutral-light: #F8F9FA;
+    }
+
+    html {
+      font-family: "Bebas Neue", sans-serif;
+      line-height: 1.5;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--neutral-light);
+      color: #333;
+    }
+    
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--neutral-light);
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .about {
+      background-color: var(--secondary);
+      color: #000;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .about p {
+      text-align: left;
+    }
+
+    .about li {
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: bold; 
+    }
+
+    .Passions,
+    footer {
+      margin: 2rem auto;
+      padding: 1.5rem;
+      max-width: 900px;
+      box-sizing: border-box;
+    }
+
+    footer {
+      background-color: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+
+  </style>
 </head>
 <body>
   <header>
@@ -21,20 +112,19 @@
     </nav>
   </header>
     <main>
-    <section class="about me">
+    <section class="about">
       <h2>Bio</h2>
       <article>
-        <p>I am studying at CU Boulder in the Creative Technology and Design school. I am focusing on product development within this major.
+        <p style="text-align:center;"> I am studying at CU Boulder in the Creative Technology and Design school. I am focusing on product development within this major.
             And completing a business minor with an entrepreneurship focus.</p>
-        <p>Skills I hold are spread a bit thin.</p>
-        <h3L>To create a product and sell it, I have had brief interactions with...</h3L> 
+        <h3>To create a product and sell it, I have had brief interactions with...</h3> 
         <ul>
             <li>Some of the design process</li>
-            <p>- Designing a manual mirror pivot assembly</p>
+            <p>Designing a manual mirror pivot assembly</p>
             <li>User interface cohesion</li>
-            <p>- Mirror needs to hold it's position over bumps and vibration, and be adjustable by hand.</p>
+            <p>Mirror needs to hold it's position over bumps and vibration, and be adjustable by hand.</p>
             <li>Manufacturing methods and materials</li>
-            <p>- Vaccum infused and wet layup carbon fiber shells from two piece molds, Plasma cut stainless brackets and baseplates. Welded threaded studs on baseplate. White silicone caulk to hold mirror.</p>
+            <p>Vaccum infused and wet layup carbon fiber shells from two piece molds, Plasma cut stainless brackets and baseplates. Welded threaded studs on baseplate. White silicone caulk to hold mirror.</p>
             <li>Sorting a supply chain</li>
             <p>2 different carbon manufacturing facilities, send cut send for brackets and baseplates, been through chinese, european, and domestic hardware suppliers (chinese quality and lead times ftw)</p>
             <li>Quality Control</li>
