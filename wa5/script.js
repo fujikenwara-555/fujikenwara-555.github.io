@@ -1,18 +1,14 @@
 const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
 const navBurger = document.querySelector('.nav-burger-menu');
 
-let toggle = false;
+navToggle.addEventListener('click', () => {
+  const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+  navToggle.setAttribute('aria-expanded', !isExpanded);
+  navBurger.classList.toggle('show');
+});
 
-navToggle.addEventListener("click", () => {
-    if (toggle==false) {
-        navBurger.style.display = "block";
-        navBurger.ariaLabel = "nav bar";
-        toggle = true;
-    }
-    else {
-        navBurger.style.display = "none";
-        toggle = false;
-    }
-
-})
+navToggle.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    navToggle.click();
+  }
+});

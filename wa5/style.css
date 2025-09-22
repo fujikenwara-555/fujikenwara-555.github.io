@@ -1,65 +1,85 @@
 * {
-    padding: 0;
-    margin: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    background-color: teal;
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: teal;
+  padding: 1em 2em;
+  color: white;
 }
 
-.nav-menu {
-    display: flex;
-    gap: 5vw;
-}
-
-
-
-
-
-
-
-
-
-.nav-menu a {
-    text-decoration: none;
-    color: white;
-}
-
-.nav-menu li:hover {
-    background-color: rgb(2,168,168);
+.nav-brand {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .nav-burger-menu {
-    display: none;
+  display: flex;
 }
 
-@media (min-width:768px) {
-    .nav-burger-menu {
-    display: none !important;
-    }
-    .nav menu {
-        display: flex;
-    }
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
 }
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        flex-direction: column;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 0.75em;
+  transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  background-color: rgb(2,168,168);
+  border-radius: 6px;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5em;
 }
 
 .nav-toggle span {
-    background-color: rgba(255,255,255,0.869);
-    height: 0.2em;
-    width: 2em;
-    display:flex;
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .nav-burger-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: teal;
+    padding: 1em 0;
+  }
+
+  .nav-burger-menu.show {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
 }
