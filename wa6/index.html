@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Photo gallery</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="gallery-container">
     <header class="gallery-header">Photo Gallery</header>
+
     <nav class="gallery-nav">
-      <button>All</button>
-      <button>Nature</button>
-      <button>Architecture</button>
+      <button class="filter-btn">All</button>
+      <button class="filter-btn">Nature</button>
+      <button class="filter-btn">Architecture</button>
     </nav>
+
     <main class="gallery-grid">
       <div class="photo-card" data-category="nature">Photo 1</div>
       <div class="photo-card" data-category="architecture">Photo 2</div>
@@ -22,8 +24,10 @@
       <div class="photo-card" data-category="nature">Photo 5</div>
       <div class="photo-card" data-category="architecture">Photo 6</div>
     </main>
+
     <aside class="gallery-sidebar">Filter Options</aside>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
