@@ -1,85 +1,141 @@
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+/*Top nav */
 .main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: teal;
-  padding: 1em 2em;
-  color: white;
+  background: #222;
+  color: #fff;
+  padding: 0.5rem 1rem;
 }
 
 .nav-brand {
   font-size: 1.2rem;
   font-weight: bold;
-}
-
-.nav-burger-menu {
-  display: flex;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5em 0.75em;
-  transition: background-color 0.3s ease;
-}
-
-.nav-menu a:hover {
-  background-color: rgb(2,168,168);
-  border-radius: 6px;
+  color: #fff;
 }
 
 .nav-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
+  gap: 4px;
   background: none;
   border: none;
-  padding: 0.5em;
+  cursor: pointer;
 }
 
 .nav-toggle span {
   display: block;
   width: 25px;
   height: 3px;
-  background-color: white;
-  border-radius: 3px;
+  background: #fff;
 }
 
-@media (max-width: 768px) {
-  .nav-burger-menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: teal;
-    padding: 1em 0;
-  }
+/*Nav menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
 
-  .nav-burger-menu.show {
-    display: block;
-  }
+.nav-menu a,
+.nav-menu button {
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: block;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+/* Top-level dropdown (Parts) */
+.nav-menu > .nested-menu {
+  position: relative;
+}
+
+.nav-menu > .nested-menu > .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  background: #444;
+  z-index: 100;
+}
+
+/* Nested submenus */
+.sub-menu .nested-menu > .sub-menu {
+  position: static;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  background: #555;
+  z-index: 90;
+}
+
+
+.sub-menu li {
+  padding: 0;
+}
+
+.sub-menu li button,
+.sub-menu li a {
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  color: #fff;
+}
+
+/* Show submenu when parent active */
+.nested-menu.active > .sub-menu {
+  display: flex;
+}
+
+/*Mobile */
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
 
   .nav-menu {
+    display: none; /* hide by default */
     flex-direction: column;
-    align-items: center;
-    gap: 1em;
   }
 
-  .nav-toggle {
+  .nav-menu.open {
     display: flex;
   }
+
+  /* Submenus stack vert in mobile */
+  .sub-menu {
+    position: static;
+    background: #555;
+  }
+
+  .sub-menu .nested-menu > .sub-menu {
+    position: static;
+    left: 0;
+  }
+}
+
+/* Slides */
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
 }
