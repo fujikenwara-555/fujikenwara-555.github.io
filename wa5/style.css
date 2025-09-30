@@ -131,7 +131,9 @@ body {
   }
 }
 
-/* Slides */
+/* --- Slides --- */
+
+
 .slide {
   display: none;
 }
@@ -149,7 +151,6 @@ body {
   margin: 2rem auto;
 }
 
-/* --- Slides --- */
 .slide {
   display: none;
   width: 100%;
