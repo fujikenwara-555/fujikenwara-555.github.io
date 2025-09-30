@@ -139,3 +139,59 @@ body {
 .slide.active {
   display: block;
 }
+
+.slideshow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+/* --- Slides --- */
+.slide {
+  display: none;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* --- Prev / Next Buttons --- */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(34, 34, 34, 0.7);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(34, 34, 34, 0.9);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Optional: add smooth fade for slides */
+.slide {
+  transition: opacity 0.5s ease-in-out;
+}
