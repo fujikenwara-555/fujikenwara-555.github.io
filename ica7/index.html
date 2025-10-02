@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impreza Parts Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="main-nav">
+  <div class="nav-brand">First Gen Impreza Reproduction Parts Hub</div>
+
+  <div class="theme-switcher">
+    <button class="nav-menu-button" onclick="setTheme('light')">Light</button>
+    <button class="nav-menu-button" onclick="setTheme('dark')">Dark</button>
+  </div>
+
+  <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-menu">
+    <!-- Parts dropdown -->
+    <li class="nested-menu">
+      <button class="dropdown-toggle">Parts ▾</button>
+      <ul class="sub-menu">
+        <!-- Trim -->
+        <li class="nested-menu">
+          <button class="dropdown-toggle">Trim ▸</button>
+          <ul class="sub-menu">
+            <li><button data-category="all">Show All</button></li>
+            <li><button data-category="seals-trim">Seals</button></li>
+            <li><button data-category="door-trim">Door</button></li>
+            <li><button data-category="roof-trim">Roof</button></li>
+            <li><button data-category="trunk-trim">Trunk</button></li>
+          </ul>
+        </li>
+        <!-- Mechanical -->
+        <li class="nested-menu">
+          <button class="dropdown-toggle">Mechanical ▸</button>
+          <ul class="sub-menu">
+            <li><button data-category="all">Show All</button></li>
+            <li><button data-category="engine">Engine</button></li>
+            <li><button data-category="wiring">Wiring</button></li>
+            <li><button data-category="fueling">Fueling</button></li>
+            <li><button data-category="suspension">Suspension</button></li>
+          </ul>
+        </li>
+        <!-- Electrical -->
+        <li class="nested-menu">
+          <button class="dropdown-toggle">Electrical ▸</button>
+          <ul class="sub-menu">
+            <li><button data-category="all">Show All</button></li>
+            <li><button data-category="lighting">Lighting</button></li>
+            <li><button data-category="battery">Battery</button></li>
+            <li><button data-category="sensors">Sensors</button></li>
+          </ul>
+        </li>
+        <!-- Interior -->
+        <li class="nested-menu">
+          <button class="dropdown-toggle">Interior ▸</button>
+          <ul class="sub-menu">
+            <li><button data-category="all">Show All</button></li>
+            <li><button data-category="seats">Seats</button></li>
+            <li><button data-category="dashboard">Dashboard</button></li>
+            <li><button data-category="carpet">Carpet</button></li>
+          </ul>
+        </li>
+        <!-- Exterior -->
+        <li class="nested-menu">
+          <button class="dropdown-toggle">Exterior ▸</button>
+          <ul class="sub-menu">
+            <li><button data-category="all">Show All</button></li>
+            <li><button data-category="bumpers">Bumpers</button></li>
+            <li><button data-category="fenders">Fenders</button></li>
+            <li><button data-category="quarterpanels">Quarter Panels</button></li>
+            <li><button data-category="mirrors">Mirrors</button></li>
+            <li><button data-category="grilles">Grilles</button></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#community">Community</a></li>
+  </ul>
+</nav>
+
+<!-- Slideshow Functionality -->
+<section class="slideshow">
+  <img src="img/blackrs25stock.jpg" class="slide active">
+  <img src="img/25rsstock1.jpg" class="slide">
+  <img src="img/red25rsstock.jpg" class="slide">
+  <button class="prev">‹</button>
+  <button class="next">›</button>
+</section>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
