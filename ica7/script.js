@@ -106,3 +106,15 @@ window.addEventListener('load', () => {
   const savedTheme = localStorage.getItem('userTheme') || 'light';
   document.body.className = savedTheme;
 });
+
+// Theme preference Privacy Page
+function setTheme(theme) {
+  localStorage.setItem('userTheme', theme);
+  document.body.className = theme;
+}
+
+// Load saved theme on page load
+window.addEventListener('load', () => {
+  const savedTheme = localStorage.getItem('userTheme') || 'light';
+  document.body.className = savedTheme;
+});
