@@ -99,6 +99,26 @@
   <button class="next">›</button>
 </section>
 
+<!-- Part Request -->
+<section class="part-request">
+  <h2>Request a Reproduction Part</h2>
+  <form id="partRequestForm">
+    <label for="username">Your Name:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="part">Requested Part:</label>
+    <input type="text" id="part" name="part" required>
+
+    <button type="submit">Submit Request</button>
+  </form>
+
+  <div id="savedRequest"></div>
+  <button id="clearRequest">Clear My Request</button>
+  <button class="privacy-btn" onclick="document.getElementById('privacy').scrollIntoView({behavior:'smooth'});">
+    Privacy Statement
+ </button>
+</section>
+
 <script src="script.js" defer></script>
 
 </body>

@@ -57,6 +57,44 @@ nextBtn.addEventListener('click', () => {
   showSlide(currentIndex);
 });
 
+// Part Request Form with localStorage
+const partForm = document.getElementById('partRequestForm');
+const savedRequestDiv = document.getElementById('savedRequest');
+const clearBtn = document.getElementById('clearRequest');
+
+// Load saved request on page load
+window.addEventListener('load', () => {
+  const savedName = localStorage.getItem('requestName');
+  const savedPart = localStorage.getItem('requestPart');
+
+  if (savedName && savedPart) {
+    savedRequestDiv.textContent = `Saved Request: ${savedName} requested "${savedPart}"`;
+  }
+});
+
+// Handle form submit
+partForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('username').value.trim();
+  const part = document.getElementById('part').value.trim();
+
+  if (name && part) {
+    localStorage.setItem('requestName', name);
+    localStorage.setItem('requestPart', part);
+
+    savedRequestDiv.textContent = `Saved Request: ${name} requested "${part}"`;
+    partForm.reset();
+  }
+});
+
+// Handle clear request
+clearBtn.addEventListener('click', () => {
+  localStorage.removeItem('requestName');
+  localStorage.removeItem('requestPart');
+  savedRequestDiv.textContent = "Request cleared.";
+});
+
 // Theme preference
 function setTheme(theme) {
   localStorage.setItem('userTheme', theme);
