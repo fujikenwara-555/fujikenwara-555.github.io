@@ -1,21 +1,22 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impreza Parts Hub</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impreza Parts Hub</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- nav bar -->
 <nav class="main-nav">
-  <div class="nav-brand">First Gen Impreza Reproduction Parts Hub</div>
+  <div class="nav-brand">
+    First Gen Impreza Reproduction Parts Hub
+  </div>
 
   <div class="theme-switcher">
-    <button class="nav-menu-button" onclick="setTheme('light')">Light</button>
-    <button class="nav-menu-button" onclick="setTheme('dark')">Dark</button>
+    <button onclick="setTheme('light')" class="nav-menu-button">Light</button>
+    <button onclick="setTheme('dark')" class="nav-menu-button">Dark</button>
   </div>
 
   <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -25,11 +26,11 @@
   </button>
 
   <ul class="nav-menu">
-    <!-- Parts dropdown -->
     <li class="nested-menu">
       <button class="dropdown-toggle">Parts ▾</button>
       <ul class="sub-menu">
-        <!-- Trim -->
+        
+        <!-- trim -->
         <li class="nested-menu">
           <button class="dropdown-toggle">Trim ▸</button>
           <ul class="sub-menu">
@@ -40,7 +41,8 @@
             <li><button data-category="trunk-trim">Trunk</button></li>
           </ul>
         </li>
-        <!-- Mechanical -->
+
+        <!-- mechanical -->
         <li class="nested-menu">
           <button class="dropdown-toggle">Mechanical ▸</button>
           <ul class="sub-menu">
@@ -51,7 +53,8 @@
             <li><button data-category="suspension">Suspension</button></li>
           </ul>
         </li>
-        <!-- Electrical -->
+
+        <!-- electrical -->
         <li class="nested-menu">
           <button class="dropdown-toggle">Electrical ▸</button>
           <ul class="sub-menu">
@@ -61,7 +64,8 @@
             <li><button data-category="sensors">Sensors</button></li>
           </ul>
         </li>
-        <!-- Interior -->
+
+        <!-- interior -->
         <li class="nested-menu">
           <button class="dropdown-toggle">Interior ▸</button>
           <ul class="sub-menu">
@@ -71,7 +75,8 @@
             <li><button data-category="carpet">Carpet</button></li>
           </ul>
         </li>
-        <!-- Exterior -->
+
+        <!-- exterior -->
         <li class="nested-menu">
           <button class="dropdown-toggle">Exterior ▸</button>
           <ul class="sub-menu">
@@ -83,23 +88,25 @@
             <li><button data-category="grilles">Grilles</button></li>
           </ul>
         </li>
+
       </ul>
     </li>
+
     <li><a href="#home">Home</a></li>
     <li><a href="#community">Community</a></li>
   </ul>
 </nav>
 
-<!-- Slideshow Functionality -->
+<!-- slideshow -->
 <section class="slideshow">
-  <img src="img/blackrs25stock.jpg" class="slide active">
-  <img src="img/25rsstock1.jpg" class="slide">
-  <img src="img/red25rsstock.jpg" class="slide">
+  <img class="slide active" src="img/blackrs25stock.jpg">
+  <img class="slide" src="img/25rsstock1.jpg">
+  <img class="slide" src="img/red25rsstock.jpg">
   <button class="prev">‹</button>
   <button class="next">›</button>
 </section>
 
-<!-- Part Request -->
+<!-- part request -->
 <section class="part-request">
   <h2>Request a Reproduction Part</h2>
   <form id="partRequestForm">
@@ -114,12 +121,12 @@
 
   <div id="savedRequest"></div>
   <button id="clearRequest">Clear My Request</button>
+  
   <button class="privacy-btn">
-  <a href="privacy.html" class="privacy-btn-link">Privacy Statement</a>
-</button>
+    <a href="privacy.html" class="privacy-btn-link">Privacy Statement</a>
+  </button>
 </section>
 
 <script src="script.js" defer></script>
-
 </body>
 </html>
