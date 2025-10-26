@@ -1,47 +1,45 @@
+// Select elements
+const newQuoteButton = document.getElementById('js-new-quote');
+const answerButton = document.getElementById('js-show-answer');
+const quoteTextElement = document.getElementById('js-quote-text');
+const answerTextElement = document.getElementById('js-answer-text');
 
-const newQuoteButton = document.querySelector('#js-new-quote');
-const answerButton = document.querySelector('#js-tweet');
-const quoteTextElement = document.querySelector('#js-quote-text');
-const answerTextElement = document.querySelector('#js-answer-text');
-
+// API endpoint
 const apiEndpoint = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
 
-// Event listener for new quote button
+// Add event listeners
 newQuoteButton.addEventListener('click', getQuote);
-
-// Event listener for answer button
 answerButton.addEventListener('click', showAnswer);
 
-// Function to get a new quote
+// Get quote function
 async function getQuote() {
+    console.log('Button clicked - fetching quote...');
+    
     try {
-        // Disable button during fetch to prevent multiple clicks
+        // Disable button and show loading
         newQuoteButton.disabled = true;
         newQuoteButton.textContent = 'Loading...';
-        
-        // Clear previous answer
         answerTextElement.textContent = '';
+        quoteTextElement.textContent = 'Loading...';
         
+        // Fetch from API
         const response = await fetch(apiEndpoint);
+        console.log('Response status:', response.status);
         
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         
         const data = await response.json();
+        console.log('Data received:', data);
         
-        // Output to console for debugging
-        console.log('Quote received:', data);
-        
-        // Display the quote
+        // Display the question
         displayQuote(data);
         
     } catch (error) {
         console.error('Error fetching quote:', error);
-        alert('Failed to fetch trivia question. Please try again.');
-        
-        // Display error in quote area
-        quoteTextElement.textContent = 'Failed to load trivia question. Please try again.';
+        quoteTextElement.textContent = 'Sorry, failed to load trivia. Please try again.';
+        alert('Error: ' + error.message);
     } finally {
         // Re-enable button
         newQuoteButton.disabled = false;
@@ -49,23 +47,29 @@ async function getQuote() {
     }
 }
 
-// Function to display the quote
+// Display quote function
 function displayQuote(data) {
-    quoteTextElement.textContent = data.question;
-    
-    // Store the answer for later use
-    quoteTextElement.dataset.answer = data.answer;
+    if (data && data.question) {
+        quoteTextElement.textContent = data.question;
+        // Store answer in data attribute for later use
+        quoteTextElement.dataset.answer = data.answer;
+    } else {
+        quoteTextElement.textContent = 'No question available. Please try again.';
+    }
 }
 
-// Function to show the answer
+// Show answer function
 function showAnswer() {
     const answer = quoteTextElement.dataset.answer;
     if (answer) {
         answerTextElement.textContent = `Answer: ${answer}`;
     } else {
-        answerTextElement.textContent = 'No trivia question loaded. Please generate one first!';
+        answerTextElement.textContent = 'No question loaded yet!';
     }
 }
 
-// Load a quote when the page first loads
-document.addEventListener('DOMContentLoaded', getQuote);
+// Load initial quote when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded - initializing app');
+    getQuote(); // Load a quote immediately
+});
