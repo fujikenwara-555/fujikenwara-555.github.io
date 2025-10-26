@@ -1,35 +1,27 @@
-const newQuoteButton = document.querySelector('#js-new-quote');
-
-const quoteText = document.querySelector('#js-quote-text');
-const answerText = document.querySelector('#js-answer-text');
-
-const endpoint = 'https://trivia.cyberwisp.com/getrandomquestion';
-
-newQuoteButton.addEventListener('click', getQuote);
-
-async function getQuote() {
-  try {
-    const response = await fetch(endpoint);
-    if (!response.ok) {
-      throw Error(response.statusText);
-    }
-
-    const json = await response.json();
-    console.log(json.question);
-    displayQuote(json.question);
-    displayAnswer(json.answer);
-  } catch (err) {
-    console.error(err);
-    alert('Error fetching trivia. Try again.');
-  }
-}
-
-function displayQuote(quote) {
-  quoteText.textContent = quote;
-}
-
-function displayAnswer(answer) {
-  answerText.textContent = answer;
-}
-
-getQuote();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Trivia</title>
+    <link rel="stylesheet" href="ica11.css">
+</head>
+<body>
+    <div class="app">
+        <header>Random Christmas Trivia</header>
+        <section class="quotes">
+          <div class="quote-text" id="js-quote-text"></div>
+          <div class="quote-text" id="js-answer-text"></div>
+        </section>
+        <section class="controls" >
+          <button type="button" id="js-new-quote" class="new-quote button">
+            Generate a new bit of trivia!
+          </button>
+          <button type="button" id="js-tweet" class="twitter button">
+            Show me the answer!
+          </button>
+        </section>
+      </div>
+      <script src="ica11.js"></script>
+</body>
+</html>
