@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>wa12 — Find Nearby E85 Stations</title>
+  <link rel="stylesheet" href="wa12.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 id="page-title">Find Nearby E85 Stations</h1>
+    <p id="subtitle">Quickly locate E85 (flex-fuel) stations near you. Accessible, keyboard-friendly demo for wa12.</p>
+  </header>
+
+  <main>
+    <section class="controls card" aria-labelledby="controls-heading" role="region">
+      <h2 id="controls-heading">Search</h2>
+      <div class="row">
+        <button id="locBtn" aria-label="Use my IP address to find my approximate location">Use my location (via IP)</button>
+        <label for="zipInput">Or enter ZIP code:</label>
+        <input id="zipInput" name="zip" inputmode="numeric" pattern="[0-9]*" aria-label="Enter ZIP code" placeholder="e.g. 80302" />
+        <label for="radius">Radius (miles):</label>
+        <select id="radius" aria-label="Search radius in miles">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+        </select>
+        <button id="findBtn" aria-label="Find E85 stations">Find E85 Stations</button>
+      </div>
+      <p class="hint">Tip: IP-based location is approximate. ZIP code gives better local results.</p>
+    </section>
+
+    <section id="results" class="card" role="region" aria-labelledby="results-heading" tabindex="-1">
+      <h2 id="results-heading">Results</h2>
+      <div id="status" aria-live="polite">No search yet.</div>
+      <ul id="stations" role="list"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="access-heading" role="region">
+      <h2 id="access-heading">Accessibility notes</h2>
+      <p>All buttons and selects are keyboard operable. Results announce updates to screen readers. Focus outlines are visible.</p>
+    </section>
+  </main>
+
+  <footer class="card">
+    <p>APIs used: <a href="https://api.ipify.org?format=json">ipify</a>, <a href="https://ipinfo.io">ipinfo</a>, and NREL Alt-Fuel Stations API. (Demo key in client JS.)</p>
+  </footer>
+
+  <script src="wa12.js"></script>
+</body>
+</html>
