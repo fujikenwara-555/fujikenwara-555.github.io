@@ -75,42 +75,42 @@ function buildNrelUrlByZip(zip, radiusMiles, limit=20){
 }
 
 // ---------- Render ----------
-function renderStations(list){
+// ---------- Render ----------
+function renderStations(list) {
   clearStations();
-  if(!list || list.length === 0){
+  if (!list || list.length === 0) {
     setStatus('No E85 stations found in this area.');
     return;
   }
+
   setStatus(`Found ${list.length} station(s).`);
-  list.forEach(s => {
+  list.forEach((s) => {
     const li = document.createElement('li');
     li.className = 'station';
-    li.setAttribute('role','listitem');
+    li.setAttribute('role', 'listitem');
 
-    const a = document.createElement('a');
-    a.className = 'station-link';
-    a.href = s.station_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.street + ' ' + s.city)}`;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.setAttribute('aria-label', `${s.station_name}. ${s.street}, ${s.city}, ${s.state}. ${s.distance ? Math.round(s.distance*10)/10 + ' miles away.' : ''}`);
+    const name = s.station_name || 'Unknown Station';
+    const address = `${s.street_address || s.street || ''}, ${s.city || ''}, ${s.state || ''} ${s.zip || ''}`.trim();
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
-    const h3 = document.createElement('h3');
-    h3.textContent = s.station_name || 'Station';
+    li.innerHTML = `
+      <h3>${name}</h3>
+      <p>${address}</p>
+      <p>Access: ${s.access_code || s.access_days_time || 'N/A'}${s.distance ? ' • ' + (Math.round(s.distance * 10) / 10) + ' mi' : ''}</p>
+      <button 
+        aria-label="Open ${name} in Google Maps"
+        onclick="window.open('${mapsUrl}', '_blank')"
+      >
+        Open in Google Maps
+      </button>
+    `;
 
-    const p1 = document.createElement('p');
-    p1.textContent = `${s.street || ''} ${s.city || ''}, ${s.state || ''} ${s.zip || ''}`;
-
-    const p2 = document.createElement('p');
-    p2.textContent = `Access: ${s.access_code || s.access_days_time || 'N/A'}${s.distance ? ' • ' + (Math.round(s.distance*10)/10) + ' mi' : ''}`;
-
-    a.appendChild(h3);
-    a.appendChild(p1);
-    a.appendChild(p2);
-    li.appendChild(a);
     stationsEl.appendChild(li);
   });
+
   focusResults();
 }
+
 
 // ---------- Main search flow ----------
 async function searchUsingIP(){
