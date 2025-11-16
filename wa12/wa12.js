@@ -1,11 +1,3 @@
-/* wa12.js
-   Minimal accessible demo:
-   - Uses ipify -> ipinfo to get approximate lat/lon
-   - Uses NREL Alt-Fuel Stations API to find E85 stations
-   - Your NREL API key inserted below (you provided it)
-   NOTE: For production, do not embed keys in client code.
-*/
-
 // ---------- CONFIG ----------
 const NREL_API_KEY = 'BCO1aFMDzr1i6zx8JiFPSCiJmeOGoseaar45NgqJ'; // provided key
 const NREL_ENDPOINT = 'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json';
@@ -74,7 +66,6 @@ function buildNrelUrlByZip(zip, radiusMiles, limit=20){
   return `${NREL_ENDPOINT}?${params.toString()}`;
 }
 
-// ---------- Render ----------
 // ---------- Render ----------
 function renderStations(list) {
   clearStations();
