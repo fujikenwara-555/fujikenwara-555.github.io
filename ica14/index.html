@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cat Loader</title>
+<style>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  line-height: 1.4;
+  background: #e6dcdc;
+}
+
+/* ---- CAT BOX ---- */
+
+.box {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6dcdc;
+}
+
+.cat {
+  position: relative;
+  width: 100%;
+  max-width: 20em;
+  overflow: hidden;
+  background-color: #e6dcdc;
+}
+
+.cat::before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.cat > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: rotating 1s cubic-bezier(0.65,0.54,0.12,0.93) infinite;
+}
+
+.cat:hover > * {
+  animation-play-state: paused;
+}
+.cat:active > * {
+  animation-play-state: running;
+}
+
+/* Base cat piece */
+.cat > *::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-image: url("https://images.weserv.nl/?url=i.imgur.com/M1raXX3.png&il");
+}
+
+/* Body pieces */
+.cat__body:nth-of-type(1) {
+  animation-delay: 0.0s;
+}
+.cat__body:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+.cat__body::before {
+  right: 0;
+  bottom: 0;
+  background-position: 100% 100%;
+  transform-origin: 0% 0%;
+}
+
+/* Tail */
+.cat__tail {
+  animation-delay: 0.2s;
+}
+.cat__tail::before {
+  left: 0;
+  bottom: 0;
+  background-position: 0% 100%;
+  transform-origin: 100% 0%;
+  transform: rotate(-10deg);
+}
+
+/* Head */
+.cat__head::before {
+  top: 0;
+  right: 0;
+  background-position: 100% 0%;
+  transform-origin: 0% 100%;
+  transform: rotate(90deg);
+}
+
+/* Rotation keyframe */
+@keyframes rotating {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+/* Info block */
+.info {
+  margin: 0 auto;
+  padding: 1em;
+  font-size: 0.9em;
+  font-style: italic;
+  font-family: serif;
+  text-align: center;
+  opacity: 0.5;
+  width: 90%;
+  max-width: 36rem;
+}
+
+.info a {
+  color: inherit;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <div class="cat">
+    <div class="cat__body"></div>
+    <div class="cat__body"></div>
+    <div class="cat__tail"></div>
+    <div class="cat__head"></div>
+  </div>
+</div>
+
+<blockquote class="info">
+  inspired from <a href="https://dribbble.com/domaso">domaso</a>'s dribbble:
+  <a href="https://dribbble.com/shots/3197970-Loading-cat">Loading cat</a><br>
+  fork from <a href="https://www.facebook.com/tenyoku8478">林天翼</a>'s
+  <a href="https://www.csie.ntu.edu.tw/~b02902062/load_cat/">load cat</a><br>
+  via:
+  <a href="https://www.facebook.com/groups/f2e.tw/permalink/1180443255326371/?comment_id=1180487985321898">FB comment</a>
+</blockquote>
+
+</body>
+</html>
