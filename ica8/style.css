@@ -388,3 +388,9 @@ back-btn {
 .back-btn:hover {
   background-color: #0056b3;
 }
+
+.privacy-btn.privacy-btn-link {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
